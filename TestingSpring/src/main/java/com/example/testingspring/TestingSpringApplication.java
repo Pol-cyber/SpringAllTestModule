@@ -37,6 +37,7 @@ public class TestingSpringApplication {
 
 
     public static void main(String[] args) throws IOException {
+        // Перевірка роботи
         SpringApplication.run(TestingSpringApplication.class, args);
     }
 
