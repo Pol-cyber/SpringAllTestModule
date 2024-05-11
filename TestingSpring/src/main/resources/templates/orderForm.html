@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+     <h1>You ORDER</h1>
+     <img th:src="@{/images/bee-on-daisy.jpg}">
+     <div th:switch="${not userorders.isEmpty()}">
+         <ul th:case="true">
+             <h3>Ваші минулі замовлення:</h3><br/>
+            <li th:each="orderU : ${userorders}">
+                 <span th:text="${orderU.toString()}"></span><br/>
+            </li>
+         </ul>
+         <h3 th:case="false">Створіть своє перше замовлення!!:</h3>
+     </div>
+
+     <form method="POST" th:action="@{/orders}" th:object="${tacoOrder}">
+         <div>
+             <a th:href="@{/design}">Добавити тако</a><br/>
+             <span th:style="'color: red'" th:if="${#fields.hasErrors('tacoList')}" th:errors="*{tacoList}">Span Error</span>
+             <ul>
+                 <h5>Тако у вашому замовленні</h5>
+                 <li th:each="tacos : ${tacoOrder.getTacoList()}">
+                     <span th:text="${tacos.getName()}"> Check</span>
+                 </li>
+             </ul>
+         </div>
+
+<!--         Thymeleaf автоматично генерує name="deliveryName" id="deliveryName" для
+             параметра th:field = "*{deliveryName}"-->
+<!--         Якщо правильно розумію в даному випадку потрібно використовувати th:for-->
+         <label th:for="deliveryName">Delivery Name</label>
+         <input th:field="*{deliveryName}" type="text">
+         <span th:if = "${#fields.hasErrors('deliveryName')}" th:errors="*{deliveryName}">Span Error</span>
+         <br/>
+
+         <label for="ccNumber">Card Number</label>
+         <input th:field="*{ccNumber}" type="text">
+         <span th:if="${#fields.hasErrors('ccNumber')}"  th:errors="*{ccNumber}">Span Error</span>
+         <br/>
+
+         <label for="ccExpiration">Card Expiration</label>
+         <input th:field="*{ccExpiration}" type="text">
+         <span th:if="${#fields.hasErrors('ccExpiration')}"  th:errors="*{ccExpiration}">Span Error</span>
+         <br/>
+
+         <label for="ccCVV">CVV CODE</label>
+         <input th:field="*{ccCVV}" type="text">
+         <span th:if="${#fields.hasErrors('ccCVV')}"  th:errors="*{ccCVV}">Span Error</span>
+         <br/>
+
+
+         <input type="submit" value="Submit Order">
+
+     </form>
+
+</body>
+</html>

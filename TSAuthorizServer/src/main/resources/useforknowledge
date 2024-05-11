@@ -1,0 +1,16 @@
+1) Оскільки я використовую grant_type = AUTHORIZATION_CODE то після реєстрації
+(http://localhost:9000/oauth2/authorize?response_type=code&client_id=taco-admin-client&redirect_uri
+=http://127.0.0.1:9090/login/oauth2/code/taco-admin-client&scope=writeIngredients+deleteIngredients,
+тут client_id це клієнт створений в системі, ключове слово - RegisteredClientRepository)
+мене буде перенаправлено на redirect_uri з параметром code який потім необхідно використати в
+даному тексті замість $code:
+curl localhost:9000/oauth2/token -H"Content-type: application/x-www-form-urlencoded"
+-d"grant_type=authorization_code" -d"redirect_uri=http://127.0.0.1:9090/login/oauth2/code/taco-admin-client"
+-d"code=$code" -u taco-admin-client:secret (писати потрібно в строку, но я перевів на нову строку для наглядності)
+Після цього я отримаю інформацію jwt токен і тд (ст. 226)
+За допомогою jwt токену вставивши його в такий текст:
+$ curl localhost:8080/api/ingredients
+ -H"Content-type: application/json"
+ -d"{\"id\":\"SHMP\", \"name\":\"Coconut Shrimp\", \"type\":\"PROTEIN\"}"
+ -H"Authorization: Bearer $token"
+В результаті буде створено новий обєкт на ресурсному сервері (налаштування ресурсного сервера ст. 228)

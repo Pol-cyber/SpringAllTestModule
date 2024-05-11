@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+   <p th:text="${message} ?: 'Default title'"></p>
+   <img th:src="@{/images/bee-on-daisy.jpg}" width="500">
+
+   <form method="POST" th:action="@{/design}" th:object="${taco}">
+       <div class="grid">
+           <div class="ingredient-grid" id="wrap">
+               <h3>ALL INGRIDIENTS</h3>
+               <div th:each="ingredient : ${wrap}">
+                   <input th:field="*{ingredientsList}" type="checkbox"
+                            th:value="${ingredient.id}">
+                   <span th:text="${ingredient.name}">INGREDIENT</span><br/>
+               </div>
+           </div>
+       </div>
+
+       <div>
+           <h3>Name your taco creation:</h3>
+           <input type="text" th:field="*{name}">
+           <br/>
+           <h3></h3>
+
+           <button>CheckB</button>
+       </div>
+   </form>
+
+</body>
+</html>
