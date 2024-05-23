@@ -48,7 +48,6 @@ public class TestSpringDataRest {
     @Test
     public void testPost(){
         try {
-
 //            ResponseEntity<Taco> r = restTemplate.getForEntity("http://localhost:8080/data-api/tacos/{id}", Taco.class,352);
             Taco taco = new Taco();
             taco.setCreatedAt(new Date());
@@ -59,6 +58,7 @@ public class TestSpringDataRest {
             ingredients.setName("Hello");
             taco.setIngredientsList(Arrays.asList(ingredients));
             URI newResourceLocation = restTemplate.postForLocation("http://localhost:"+port+"/data-api/tacos", taco);
+//          Iterable<Taco> newResourceLocation = restTemplate.getForObject("http://localhost:"+port+"/api/tacos?recent={recent}", Iterable.class,22);
             System.out.println(newResourceLocation);
         } catch (Exception e) {
             e.printStackTrace();
