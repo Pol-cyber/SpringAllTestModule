@@ -3,3 +3,6 @@
 
 2) Викорстовуючи WebClient з onStatus, то у випадку помилки bodyToMono ігнорується і ми можемо опрацювати помилку за допомогою
 другого параметра subscribe (Test class TestWebClient)
+
+3) Для того щоб реалізувати UserDetailService в SpringWebFlux потрібно створити ReactiveUserDetailsService (метод, що потрібно
+ реалізувати отримує String, а повертає Mono<UserDetails>)

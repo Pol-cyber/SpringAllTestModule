@@ -11,7 +11,7 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class TestWebFluxWithRealEnvironment {
+public class TestWebTestClientWithRealEnvironment {
 
 
     @Autowired
