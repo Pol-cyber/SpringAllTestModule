@@ -15,7 +15,6 @@ import reactor.core.publisher.Mono;
 @EnableWebFluxSecurity
 public class SecurityConfig {
 
-
     @Bean
     public SecurityWebFilterChain securityPathconfig(ServerHttpSecurity http){
          return http
