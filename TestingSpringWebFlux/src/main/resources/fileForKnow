@@ -6,3 +6,6 @@
 
 3) Для того щоб реалізувати UserDetailService в SpringWebFlux потрібно створити ReactiveUserDetailsService (метод, що потрібно
  реалізувати отримує String, а повертає Mono<UserDetails>)
+
+4) Клієнт додатку WebFlux без RSocket буде очікувати на повну обробку значення методом, а не отримувати
+значення як тільки воно надходить. Для тесту цього розкоментуй WebClient в DefaultConfig (RSocketClient project)

@@ -1,16 +1,21 @@
 package com.example.rsocketclient.configuration;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.rsocket.RSocketRequester;
+import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
 
 import java.time.Duration;
 
 @Configuration
 public class DefaultConfig {
+
+//    @Autowired
+//    private WebClient.Builder webClientBuilder;
 
     @Bean
     public ApplicationRunner applicationRunner(RSocketRequester.Builder builder){
@@ -42,6 +47,12 @@ public class DefaultConfig {
                     .retrieveFlux(String.class) // method 'send' because we don't expect result
                     .subscribe(s -> System.out.println(s +" Result"));
 
+
+//            WebClient webClient = webClientBuilder.baseUrl("http://localhost:" + 8080).build();
+//            webClient.get().uri("/")
+//                    .retrieve()
+//                    .bodyToFlux(String.class)
+//                    .subscribe(s -> System.out.println(s));
         };
     }
 }

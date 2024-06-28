@@ -119,11 +119,11 @@ public class ConfForIntegrFile {
         };
     }
 
-    @Bean
-    @Splitter(inputChannel = "splitChannel",outputChannel = "outSplitChannel")
-    public DataSplitter getSplitter(){
-        return new DataSplitter();
-    }
+//    @Bean
+//    @Splitter(inputChannel = "splitChannel",outputChannel = "outSplitChannel")
+//    public DataSplitter getSplitter(){
+//        return new DataSplitter();
+//    }
 
 //    Налаштовує для DLS вище пуллер який буде перевіряти чи є повідомлення кожні 10 секунд і якщо є буде по черзі їх обробляти
 //    @Bean(name = PollerMetadata.DEFAULT_POLLER)

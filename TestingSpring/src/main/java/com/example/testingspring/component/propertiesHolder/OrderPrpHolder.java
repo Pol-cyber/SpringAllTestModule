@@ -1,4 +1,4 @@
-package com.example.testingspring.Controllers.propertiesHolder;
+package com.example.testingspring.component.propertiesHolder;
 
 
 import jakarta.validation.constraints.Max;
