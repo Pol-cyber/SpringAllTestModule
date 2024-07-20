@@ -55,7 +55,7 @@ public class ConfForIntegrFile {
                   return text;
               }).channel("filtersssssChannel").channel("checRout").channel("lastchannel")
               .handle(Files
-                      .outboundAdapter(new File("C:\\Users\\User\\IdeaProjects\\TestingSpring\\tmp\\sprintintegration\\files"))
+                      .outboundAdapter(new File("C:\\Users\\yarem\\IdeaProjects\\TestingSpring\\tmp\\sprintintegration\\files"))
                       .fileExistsMode(FileExistsMode.APPEND)
                       .appendNewLine(true))
               .get();

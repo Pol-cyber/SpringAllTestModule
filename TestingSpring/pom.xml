@@ -125,6 +125,18 @@ target/classes/META-INF/spring-configuration-metadata.json)-->
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
+        <!-- Додає можливість свторювати власні меторики (/metrics) Actuator -->
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-core</artifactId>
+        </dependency>
+
+<!--        Клієнт для Spring Actuator-->
+        <dependency>
+            <groupId>de.codecentric</groupId>
+            <artifactId>spring-boot-admin-starter-client</artifactId>
+            <version>3.1.5</version>
+        </dependency>
     </dependencies>
 
     <build>
