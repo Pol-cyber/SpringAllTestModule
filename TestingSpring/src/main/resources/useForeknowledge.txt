@@ -172,3 +172,19 @@ inputChannel.
 2) Каналу не було створено до даного моменту, то як при варіанті channel("Name") так і при channel(MessageChannels.direct(Name")) буде створено новий канал.
 
 33) У разі виникнення “unknown property” в конфігурації spring - ст.295
+
+
+34) spring.boot.admin.client.username=admin
+    spring.boot.admin.client.password=admin -
+    Ці параметри використовуються для аутентифікації клієнтського
+    додатку (вашого додатку) на сервері Spring Boot Admin. Тобто, коли
+    клієнтський додаток реєструється на сервері Spring Boot Admin, він
+    використовує ці облікові дані для автентифікації.
+
+    spring.boot.admin.client.instance.metadata.user.name=admin
+    spring.boot.admin.client.instance.metadata.user.password=12345678 -
+    Ці параметри використовуються для передачі облікових даних, які сервер
+    Spring Boot Admin буде використовувати для аутентифікації на клієнтському
+    додатку (вашому додатку). Тобто, коли сервер Spring Boot Admin намагається
+    отримати доступ до вашого клієнтського додатку (наприклад, для отримання метрик
+    або інших даних), він використовує ці облікові дані.

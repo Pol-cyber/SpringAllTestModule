@@ -20,7 +20,7 @@ import java.time.Duration;
 public class FirstReactiveController {
 
     // Це реалізація за допомогою анотацій, но краще при використанні spring webflux перейти на функціональну
-    // парадигму. Приклад схожого контроллера таким методом (RouterFunctonConfig)
+    // парадигму. Приклад схожого контроллера таким методом (RouterFunctionConfig)
 
     @GetMapping("/")
     public Flux<String> stringMono(){

@@ -20,7 +20,8 @@ public class DefaultConfig {
     @Bean
     public ApplicationRunner applicationRunner(RSocketRequester.Builder builder){
         return args -> {
-             RSocketRequester requester = builder.tcp("localhost",7000);
+             RSocketRequester requester = builder.tcp("localhost",7000); // 7000 це порт
+            // який слує RSocket сервер в проекті TestingSpringWebFlux
 
              // Request-response
 //             requester.route("/requestResponse")
@@ -48,6 +49,8 @@ public class DefaultConfig {
                     .subscribe(s -> System.out.println(s +" Result"));
 
 
+            // WebClient це аналог RestTemplate і тут я просто роблю запит до сервер TestingSpringWebFlux,
+            // щоб перевірити (4) в fileForKnow розміщений в проекті згаданому вище.
 //            WebClient webClient = webClientBuilder.baseUrl("http://localhost:" + 8080).build();
 //            webClient.get().uri("/")
 //                    .retrieve()

@@ -23,7 +23,8 @@ public class DefaultSecurityConfig {
                         .pathMatchers("/login")
                         .permitAll()
                         .anyExchange()
-                        .authenticated()).formLogin(withDefaults())
+                        .authenticated())
+                .formLogin(withDefaults())
                 .httpBasic(withDefaults())
                 .csrf(ServerHttpSecurity.CsrfSpec::disable).build();
     }
